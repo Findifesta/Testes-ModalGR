@@ -6,15 +6,23 @@ def entrada_de_dados():
         input("Nenhum dado foi inserido.\nPressione ENTER para sair.")
         return
     dados = valores_dos_dados.split(',')
+
+    def checa_numero(dado):
+        try:
+            float(dado)
+            return True
+        except ValueError:
+            return False
+
     print("\nDados numéricos:")
     for dado in dados:
         dado = dado.strip()
-        if dado.isdigit():
+        if checa_numero(dado):
             print(dado)
     print("\nDados não-numéricos:")
     for dado in dados:
         dado = dado.strip()
-        if not dado.isdigit():
+        if not checa_numero(dado):
             print(dado)
     input("\nPressione ENTER para sair.")
 
